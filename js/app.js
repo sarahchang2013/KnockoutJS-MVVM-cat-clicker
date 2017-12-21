@@ -11,6 +11,21 @@ var ViewModel = function() {
 	this.incrementCounter = function() {
 		this.clickCount(this.clickCount() + 1);
 	};
+
+	this.level = ko.computed(function() {
+		//Omitting "this." will raise an error.
+		//Use clickCount() instead of clickCount to update the value
+		if (this.clickCount() < 10) {
+			return "infant";
+		} else if (this.clickCount() >= 10 && this.clickCount() < 20) {
+			return "teenager";
+		} else if (this.clickCount() >= 20 && this.clickCount() < 30) {
+			return "adult";
+		} else {
+			return "elderly";
+		}
+
+	}, this);
 }
 
 ko.applyBindings(new ViewModel());

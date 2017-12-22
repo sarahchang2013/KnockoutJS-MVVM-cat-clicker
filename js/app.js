@@ -26,6 +26,14 @@ var ViewModel = function() {
 		}
 
 	}, this);
+
+	this.nicknames = ko.observableArray([
+		{nickname: "Basketball Guy"},
+		{nickname: "Genius"},
+		{nickname: "Lucky Boy"}
+	]); 
 }
+
+
 
 ko.applyBindings(new ViewModel());

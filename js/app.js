@@ -1,4 +1,4 @@
-var ViewModel = function() {
+var Cat = function(){
 	//Define models (functions are still seperated)
 	//Bind with <div data-bind="text: clickCount"></div>
 	this.clickCount = ko.observable(0);
@@ -7,10 +7,6 @@ var ViewModel = function() {
 	//Bind with attr: {src: imgSrc} to set img src
 	this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
 	this.imgAttribution = ko.observable('https://www.flickr.com');
-
-	this.incrementCounter = function() {
-		this.clickCount(this.clickCount() + 1);
-	};
 
 	this.level = ko.computed(function() {
 		//Omitting "this." will raise an error.
@@ -34,6 +30,11 @@ var ViewModel = function() {
 	]); 
 }
 
-
+var ViewModel = function() {
+	this.currentCat = ko.observable(new Cat());
+	this.incrementCounter = function() {
+		this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+	};
+}
 
 ko.applyBindings(new ViewModel());

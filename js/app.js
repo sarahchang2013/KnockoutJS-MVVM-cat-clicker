@@ -1,8 +1,8 @@
 var Cat = function(){
 	//Define models (functions are still seperated)
 	//Bind with <div data-bind="text: clickCount"></div>
-	this.clickCount = ko.observable(0);
 	//Bind with h2 in html via data-bind="text: name"
+	this.clickCount = ko.observable(0);
 	this.name = ko.observable('Tony');
 	//Bind with attr: {src: imgSrc} to set img src
 	this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
@@ -33,7 +33,7 @@ var Cat = function(){
 var ViewModel = function() {
 	this.currentCat = ko.observable(new Cat());
 	this.incrementCounter = function() {
-		this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+		this.clickCount(this.clickCount() + 1);
 	};
 }
 
